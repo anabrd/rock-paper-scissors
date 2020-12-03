@@ -34,11 +34,11 @@ function comparison(human, bot) {
     }
 
     if (currentHumanScore > currentBotScore) {
-        return "You";
+        return "You win";
     } else if (currentBotScore > currentHumanScore) {
-        return "Computer";
+        return "Computer wins";
     } else {
-        return "Draw";
+        return "It's a draw";
     }
 }
 
@@ -48,14 +48,14 @@ userChoice = parseInt(prompt(`Welcome! Please choose between rock, paper and sci
     [2] paper
     [3] scissors
     
-    Type anything else is you want to finish.`));
+    Press any other key if you want to finish.`));
 
 if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
 while (userChoice == 1 || userChoice == 2 || userChoice == 3) {
 
     let computerChoice = Math.floor(Math.random() * 3) + 1;
 
-    alert(`The winner is: ${comparison(userChoice, computerChoice)}!`)
+    alert(`${comparison(userChoice, computerChoice)}!`)
 
     console.log("My choice: ", userChoice);
     console.log("Computer: ", computerChoice);
@@ -72,17 +72,17 @@ while (userChoice == 1 || userChoice == 2 || userChoice == 3) {
 
 // CALLBACK FUNCTION TEST
 function alertWinner(winner) {
-    alert(`${winner} is the winner!`);
+    alert(`${winner}`);
 }
 
 function calcWinner(callBack) {
-    let winner = ""
+    let winner = "Game over! "
     if (humanScore > botScore) {
-        winner+="Human";
+        winner+="Human wins.";
     } else if (botScore > humanScore) {
-        winner+="Computer";
+        winner+="Computer wins.";
     } else {
-        winner+="Draw";
+        winner+="It's a draw.";
     }
     callBack(winner);
 }
